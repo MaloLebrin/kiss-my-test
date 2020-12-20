@@ -34,34 +34,34 @@ export default new Vuex.Store({
         console.log('is Active ?', item);
       }
     },
-    // addAllMovies(state, page) {
-    //   axios
-    //     .get(`https://api.themoviedb.org/3/movie/popular?api_key=a5c6813249f433c9d11d20d5a8682d44&language=en-US&page=${page}`)
-    //     .then((response) => {
-    //       response.data.results.forEach((element) => {
-    //         const alreadyInState = state.Movies.find((movie) => movie.id === element.id);
-    //         if (!alreadyInState) {
-    //           // eslint-disable-next-line no-param-reassign
-    //           element.favory = false;
-    //           state.Movies.push(element);
-    //         }
-    //       });
-    //     });
-    // },
-    // addAllTvShows(state, page) {
-    //   axios
-    //     .get(`https://api.themoviedb.org/3/tv/popular?api_key=a5c6813249f433c9d11d20d5a8682d44&language=en-US&page=${page}`)
-    //     .then((response) => {
-    //       response.data.results.forEach((element) => {
-    //         const alreadyInState = state.TvShows.find((tvShow) => tvShow.id === element.id);
-    //         if (!alreadyInState) {
-    //           // eslint-disable-next-line no-param-reassign
-    //           element.favory = false;
-    //           state.TvShows.push(element);
-    //         }
-    //       });
-    //     });
-    // },
+    addAllMovies(state, page) {
+      axios
+        .get(`https://api.themoviedb.org/3/movie/popular?api_key=a5c6813249f433c9d11d20d5a8682d44&language=en-US&page=${page}`)
+        .then((response) => {
+          response.data.results.forEach((element) => {
+            const alreadyInState = state.Movies.find((movie) => movie.id === element.id);
+            if (!alreadyInState) {
+              // eslint-disable-next-line no-param-reassign
+              element.favory = false;
+              state.Movies.push(element);
+            }
+          });
+        });
+    },
+    addAllTvShows(state, page) {
+      axios
+        .get(`https://api.themoviedb.org/3/tv/popular?api_key=a5c6813249f433c9d11d20d5a8682d44&language=en-US&page=${page}`)
+        .then((response) => {
+          response.data.results.forEach((element) => {
+            const alreadyInState = state.TvShows.find((tvShow) => tvShow.id === element.id);
+            if (!alreadyInState) {
+              // eslint-disable-next-line no-param-reassign
+              element.favory = false;
+              state.TvShows.push(element);
+            }
+          });
+        });
+    },
     addOrRemoveFav(state, favoryToAdd) { // ajouter spécification movie or tvshow
       const alReadyInState = state.Favorites.find((item) => item.id === favoryToAdd.id);
       // console.log(alReadyInState);
@@ -90,37 +90,51 @@ export default new Vuex.Store({
         }
       }
     },
+    addDataTvShowToState: (state, data) => {
+      console.log(data);
+      data.results.forEach((element) => {
+        const alreadyInState = state.TvShows.find((tvShow) => tvShow.id === element.id);
+        if (!alreadyInState) {
+          // eslint-disable-next-line no-param-reassign
+          element.favory = false;
+          state.TvShows.push(element);
+        }
+      });
+    },
   },
   actions: {
     // request ici
-    addAllTvShows(state, page) {
-      axios
-        .get(`https://api.themoviedb.org/3/tv/popular?api_key=a5c6813249f433c9d11d20d5a8682d44&language=en-US&page=${page}`)
-        .then((response) => {
-          response.data.results.forEach((element) => {
-            const alreadyInState = state.TvShows.find((tvShow) => tvShow.id === element.id);
-            if (!alreadyInState) {
-              // eslint-disable-next-line no-param-reassign
-              element.favory = false;
-              state.TvShows.push(element);
-            }
-          });
-        });
-    },
-    addAllMovies(state, page) {
-      axios
-        .get(`https://api.themoviedb.org/3/movie/popular?api_key=a5c6813249f433c9d11d20d5a8682d44&language=en-US&page=${page}`)
-        .then((response) => {
-          response.data.results.forEach((element) => {
-            const alreadyInState = state.Movies.find((movie) => movie.id === element.id);
-            if (!alreadyInState) {
-              // eslint-disable-next-line no-param-reassign
-              element.favory = false;
-              state.Movies.push(element);
-            }
-          });
-        });
-    },
+    // addAllTvShows(context, page) {
+    //   axios
+    //     .get(`https://api.themoviedb.org/3/tv/popular?api_key=a5c6813249f433c9d11d20d5a8682d44&language=en-US&page=${page}`)
+    //     .then((response) => {
+    //       context.commit('addDataTvShowToState', response.data);
+
+    //       // response.data.results.forEach((element) => {
+    //       //   const alreadyInState = state.TvShows.find((tvShow) => tvShow.id === element.id);
+    //       //   if (!alreadyInState) {
+    //       //     // eslint-disable-next-line no-param-reassign
+    //       //     element.favory = false;
+    //       //     state.TvShows.push(element);
+    //       //   }
+    //       // });
+    //     });
+    // },
+    // addAllMovies(context, page) {
+    //   axios
+    //     .get(`https://api.themoviedb.org/3/movie/popular?api_key=a5c6813249f433c9d11d20d5a8682d44&language=en-US&page=${page}`)
+    //     .then((response) => {
+    //       context.commit('addDataMoviesToState', response.data);
+    //       // response.data.results.forEach((element) => {
+    //       //   const alreadyInState = state.Movies.find((movie) => movie.id === element.id);
+    //       //   if (!alreadyInState) {
+    //       //     // eslint-disable-next-line no-param-reassign
+    //       //     element.favory = false;
+    //       //     state.Movies.push(element);
+    //       //   }
+    //       // });
+    //     });
+    // },
   },
   modules: {
   },
