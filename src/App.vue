@@ -18,11 +18,7 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-$views-background: #131313;
-$light-white: #fcfcfc;
-$hover-white: #f8f9facf;
-$flash-red:  #eb5555;
-
+  @import './assets/scss/_colors.scss';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,7 +41,7 @@ $flash-red:  #eb5555;
   }
 }
 #app {
-  background-color: $views-background;
+  background-color: $grey-dark;
   min-height: 80vh;
   .container {
     width: 70%;
@@ -68,7 +64,7 @@ $flash-red:  #eb5555;
         height: 2px;
         width: 80%;
         margin: 0 auto 30px;
-        background: linear-gradient(100deg,#161616,#eb5555 50%,#161616)
+        background: linear-gradient(100deg,#161616,$red 50%,#161616)
       }
     }
   }
@@ -76,7 +72,7 @@ $flash-red:  #eb5555;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 25px #000;
+    box-shadow: 0 0 25px $classic-black;
     width: 350px;
     height: 50px;
     margin: 0 auto;
@@ -92,10 +88,10 @@ $flash-red:  #eb5555;
             font-weight: 800;
             transition: color 1s ease-in-out;
             &:hover {
-                color:  $flash-red;
+                color:  $red;
             }
            &.pagination-link--active {
-               color:  $flash-red;
+               color:  $red;
            }
        }
     }

@@ -49,9 +49,7 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-$favorite-background: #1d1d1d;
-$base-favorite: rgba(235,85,85,.5);
-$hover-favorite: #eb5555;
+  @import '../assets/scss/_colors.scss';
 
 #Favorite {
     svg {

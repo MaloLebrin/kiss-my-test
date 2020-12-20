@@ -12,7 +12,7 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-$views-background: #131313;
+  @import '../assets/scss/_colors.scss';
 $loaderSize: 200px;
 
 #Loader {
@@ -23,7 +23,7 @@ $loaderSize: 200px;
   .water{
             width:$loaderSize;
             height: $loaderSize;
-            background-color: $views-background;
+            background-color: $grey-dark;
             border-radius: 50%;
             position: relative;
             box-shadow: inset 0 0 30px 0 rgba(0,0,0,.7), 0 4px 10px 0 rgba(0,0,0,.7);
@@ -35,7 +35,7 @@ $loaderSize: 200px;
             width:$loaderSize;
             height: $loaderSize;
             top:-100px;
-            background-color: #fff;
+            background-color: $classic-white;
         }
         .water:before{
             border-radius: 45%;

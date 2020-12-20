@@ -19,10 +19,10 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-$light-white: #fcfcfc;
-$hover-white: #f8f9facf;
+  @import '../assets/scss/_colors.scss';
+
 #Header {
-  background-color: black;
+  background-color: $classic-black;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -16,14 +16,14 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-$hover-white: #f8f9facf;
+  @import '../assets/scss/_colors.scss';
 
 #Footer {
-  background-color: #000000;
+  background-color: $classic-black;
   .container {
     padding: 35px 0;
     text-align: center;
-    color: white;
+    color: $classic-white;
     a {
       text-decoration: none;
     }

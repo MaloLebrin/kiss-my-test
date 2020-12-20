@@ -26,6 +26,8 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
+  @import '../assets/scss/_colors.scss';
+
 #GenreTag {
   .tag-list {
     display: flex;
@@ -33,67 +35,67 @@ export default Vue.extend({
     justify-content: space-around;
     margin: 0 20px;
     li {
-      color: white;
+      color: $classic-white;
       margin: 0 10px;
       padding: 5px 10px;
       border-radius: 5px;
       font-weight: 500;
       &.Action {
-        background-color:  #4258a1;
+        background-color:  $action-tag;
       }
       &.Adventure {
-        background-color:  #43aa8b;
+        background-color:  $adventure-tag;
       }
       &.Animation {
-        background-color:  #4ecdc4;
+        background-color:  $animation-tag
       }
       &.Comedy {
-        background-color:  #db7c26;
+        background-color:  $comedy-tag
       }
       &.Crime {
-        background-color:  #073b4c;
+        background-color:  $crime-tag;
       }
       &.Documentary {
-        background-color:  #f4f1de;
+        background-color:  $documentary-tag;
       }
       &.Drama {
-        background-color:  #f2cc8f;
+        background-color:  $drama-tag;
       }
       &.Family {
-        background-color:  #ff6b6b;
+        background-color:  $family-tag;
       }
       &.Fantasy {
-        background-color: #ef7a85;
+        background-color: $fantasy-tag;
       }
       &.History {
-        background-color:  #81b29a;
+        background-color:  $history-tag;
       }
       &.Horror {
-        background-color:  #f4a261;
+        background-color:  $horror-tag;
       }
       &.Music {
-        background-color:  #ff6b6b;
+        background-color:  $musics-tag;
       }
       &.Mystery {
-        background-color:  #489fb5;
+        background-color:  $mystery-tag;
       }
       &.Romance {
-        background-color:  #d88c9a;
+        background-color:  $romance-tag;
       }
       &.Science {
-        background-color: #2d3142;
+        background-color: $science-tag;
       }
       &.Thriller {
-        background-color: #50514f;
+        background-color: $thriller-tag;
       }
       &.TV {
-        background-color:  #344e41;
+        background-color:  $tv-tag;
       }
       &.War{
-        background-color: #f94144;
+        background-color: $war-tag;
       }
       &.Western {
-        background-color:  #a47e1b;
+        background-color:  $western-tag;
       }
     }
   }

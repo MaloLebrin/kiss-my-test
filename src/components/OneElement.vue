@@ -76,9 +76,7 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-$hover-white: #f8f9facf;
-$grey-dark: #131313;
-$light-grey: #f6f8fa;
+  @import '../assets/scss/_colors.scss';
 
 #OneElement {
     .movie-wrapper {
@@ -86,18 +84,18 @@ $light-grey: #f6f8fa;
       align-items: center;
       justify-content: space-around;
       .movie-poster-wrapper {
-        box-shadow: 0 0 15px #000;
+        box-shadow: 0 0 15px $classic-black;
         margin-right: 30px;
       }
       .movie-infos-wrapper {
         display: flex;
         flex-direction: column;
         background-color: $grey-dark;
-        box-shadow: 0 0 20px #000;
+        box-shadow: 0 0 20px $classic-black;
         width: 600px;
         padding: 20px;
         .movie-title {
-          color: white;
+          color: $classic-white;
           font-size: 36px;
           font-weight: bold;
           margin-bottom: 10px;
@@ -115,7 +113,7 @@ $light-grey: #f6f8fa;
           }
         }
         .movie-description {
-          color: #eb5555;
+          color: $red;
           font-weight: 500;
           line-height: 1.4;
           margin-bottom: 20px;

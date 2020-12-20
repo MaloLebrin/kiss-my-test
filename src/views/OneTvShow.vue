@@ -63,9 +63,7 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-$hover-white: #f8f9facf;
-$grey-dark: #131313;
-$light-grey: #f6f8fa;
+  @import '../assets/scss/_colors.scss';
 
 .OneTvShow {
   .container {
@@ -85,7 +83,7 @@ $light-grey: #f6f8fa;
           justify-content: center;
           height: 50%;
           width: 70%;
-          box-shadow: 0 0 25px #000;
+          box-shadow: 0 0 25px $classic-black;
           padding: 10px 15px;
           .season-title {
             color: $light-grey;
@@ -110,7 +108,7 @@ $light-grey: #f6f8fa;
             flex-direction: column;
             margin: 20px 0 10px;
             .season-description {
-              color: #eb5555;
+              color: $red;
               line-height: 1.2;
               margin-bottom: 10px;
             }
@@ -121,7 +119,7 @@ $light-grey: #f6f8fa;
           }
         }
         .season-image-wrapper {
-          box-shadow: 0 0 25px #000;
+          box-shadow: 0 0 25px $classic-black;
           margin-left: 30px;
           display: flex;
           img {

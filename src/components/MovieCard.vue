@@ -43,7 +43,9 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss">
-$gray-dark: #131313;
+  @import '../assets/scss/_colors.scss';
+
+// $grey-dark: #131313;
 
 #Movie-card {
   width: 300px;
@@ -56,7 +58,7 @@ $gray-dark: #131313;
     display: flex;
     overflow: hidden;
     border-radius: 5px;
-    box-shadow: 0 0 15px #000;
+    box-shadow: 0 0 15px $classic-black;
     cursor: pointer;
     .item-img {
       flex: 1;
@@ -76,17 +78,18 @@ $gray-dark: #131313;
       flex-direction: column;
       justify-content: center;
       transition: width 0.25s ease-in-out;
-      background-color: $gray-dark;
+      background-color: $grey-dark;
       // background-color: white;
       .item-infos-title {
         display: flex;
         justify-content: flex-end;
         h4 {
           font-size: 20px;
-          line-height: 50px;
+          line-height: 25px;
           margin-left: -65px;
+          font-weight: 500;
           z-index: 3;
-          color: white;
+          color: $classic-white;
           text-transform: uppercase;
           text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         }
@@ -102,13 +105,13 @@ $gray-dark: #131313;
         transform: translateX(-100%);
         height: 0;
         width: 0;
-        border-bottom: 425px solid $gray-dark;
+        border-bottom: 425px solid $grey-dark;
         border-left: 100px solid transparent;
       }
       .description {
         opacity: 0;
         height: 50px;
-        color: #eb5555;
+        color: $red;
         overflow: hidden;
         margin-right: 15px;
         transition: all 0.25s ease-in;
