@@ -15,7 +15,6 @@ export default new Vuex.Store({
       console.log('dans le getter');
       Object.values(localStorage).forEach((value) => {
         const itemInFav = JSON.parse(value);
-        console.log(itemInFav);
         const alReadyInState = state.Favorites.find((item) => item.id === itemInFav.id);
         if (!alReadyInState) {
           state.Favorites.push(itemInFav);
