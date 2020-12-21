@@ -40,6 +40,7 @@ export default Vue.extend({
     Loader,
   },
   mounted() {
+    this.$store.dispatch('addAllTvShows');
     this.getTvShows(this.currentPage);
   },
   watch: {
@@ -51,7 +52,7 @@ export default Vue.extend({
   methods: {
     // eslint-disable-next-line object-shorthand
     getTvShows: function (page) {
-      store.commit('addAllTvShows', page);
+      store.dispatch('addAllTvShows', page);
       this.TvShows = store.state.TvShows;
       console.log(this.TvShows);
       console.log('data', store.state.TvShows);

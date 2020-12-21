@@ -41,6 +41,7 @@ export default Vue.extend({
     Loader,
   },
   mounted() {
+    this.$store.dispatch('addAllMovies');
     this.getMovies(this.currentPage);
   },
   watch: {
@@ -51,7 +52,7 @@ export default Vue.extend({
   },
   methods: {
     getMovies(page) {
-      store.commit('addAllMovies', page);
+      store.dispatch('addAllMovies', page);
       this.movies = store.state.Movies;
       this.isLoading = false;
     },

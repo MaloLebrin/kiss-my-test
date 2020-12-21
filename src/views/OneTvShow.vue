@@ -57,7 +57,6 @@ export default Vue.extend({
       .then((response) => {
         this.TvShow = response.data;
         this.Loading = false;
-        console.log('data', response.data);
       });
   },
 });

@@ -13,7 +13,6 @@
         :ratingsElement="movie.vote_average"
         :genreElement="movie.genres"
       />
-
     </div>
   </main>
 </template>
@@ -34,7 +33,6 @@ export default Vue.extend({
     return {
       Loading: true,
       movie: {},
-      // relatedMovie: {},
     };
   },
   async mounted() {
@@ -46,14 +44,6 @@ export default Vue.extend({
         this.movie = response.data;
         this.Loading = false;
       });
-    // await axios
-    //   .get(`https://api.themoviedb.org/3/movie/${this.$route.params.id}/similar?api_key=a5c6813249f433c9d11d20d5a8682d44&language=en-US&page=1`)
-    //   .then((response) => {
-    //     this.Loading = true;
-    //     this.relatedMovie = response.data.results;
-    //     console.log('data', response.data.results);
-    //     this.Loading = false;
-    //   });
   },
 });
 </script>
