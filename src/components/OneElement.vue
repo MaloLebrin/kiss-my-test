@@ -68,6 +68,7 @@ export default Vue.extend({
         padding: 20px;
         #Favorite {
           svg {
+            top: 110px;
             left: 500px;
           }
         }
