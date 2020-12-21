@@ -12,28 +12,22 @@ export default new Vuex.Store({
   },
   getters: {
     Favorites: (state) => {
+      Object.values(localStorage).forEach((value) => {
+        const itemInFav = JSON.parse(value);
+        console.log(itemInFav);
+        const alReadyInState = state.Favorites.find((item) => item.id === itemInFav.id);
+        if (!alReadyInState) {
+          state.Favorites.push(itemInFav);
+          // state.commit('addOrRemoveFav', itemInFav);
+          // console.log('state', state.Favorites);
+        }
+      });
+
       state.Movies.filter((element) => element.favory);
       // state.TvShows.filter((element) => element.favory);
     },
   },
   mutations: {
-    addFavory(state, item) {
-      const foundFav = state.Favorites.find((element) => element.id === item.id);
-      if (foundFav) {
-        // eslint-disable-next-line no-plusplus
-        for (let i = 0; i < state.Favorites.length; i++) {
-          const element = state.Favorites[i];
-          if (element.id === item.id) {
-            state.Favorites.splice(i, 1);
-          }
-        }
-      } else {
-        // eslint-disable-next-line no-param-reassign
-        item.active = true;
-        state.Favorites.push(item);
-        console.log('is Active ?', item);
-      }
-    },
     addOrRemoveFav(state, favoryToAdd) { // ajouter spécification movie or tvshow
       const alReadyInState = state.Favorites.find((item) => item.id === favoryToAdd.id);
       // console.log(alReadyInState);
@@ -43,22 +37,30 @@ export default new Vuex.Store({
         if (newMovieFav.favory && !alReadyInState) {
           newMovieFav.favory = true;
           state.Favorites.push(newMovieFav);
+          const NewMovieFavInLocalStorage = JSON.stringify(newMovieFav);
+          localStorage.setItem(`${newMovieFav.id}`, NewMovieFavInLocalStorage);
         } else {
+          console.log('dans la sup');
           newMovieFav.favory = false;
           const index = state.Favorites.findIndex((Movie) => Movie.id === favoryToAdd.id);
           // console.log(index);
           state.Favorites.splice(index, 1);
+          localStorage.removeItem(`${newMovieFav.id}`);
+          console.log('remove', localStorage.removeItem(`${newMovieFav.id}`));
         }
       } else if (favoryToAdd.name) {
         const newTvShowFav = state.TvShows.find((TvShow) => TvShow.id === favoryToAdd.id);
         if (newTvShowFav.favory && !alReadyInState) {
           newTvShowFav.favory = true;
           state.Favorites.push(newTvShowFav);
+          const NewTvShowavInLocalStorage = JSON.stringify(newTvShowFav);
+          localStorage.setItem(`${newTvShowFav.id}`, NewTvShowavInLocalStorage);
         } else {
           newTvShowFav.favory = false;
           const index = state.Favorites.findIndex((Movie) => Movie.id === favoryToAdd.id);
           // console.log(index);
           state.Favorites.splice(index, 1);
+          localStorage.removeItem(`${newTvShowFav.id}`);
         }
       }
     },
