@@ -11,14 +11,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-// import { Vue2Storage } from 'vue2-storage';
 import store from '../store/index';
-
-// Vue.use(Vue2Storage, {
-//   prefix: 'app_',
-//   driver: 'local',
-//   ttl: 60 * 60 * 24 * 1000, // 24 hours
-// });
 
 export default Vue.extend({
   name: 'Favorite',

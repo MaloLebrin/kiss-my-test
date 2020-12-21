@@ -2,22 +2,23 @@
   <div id="OneElement">
     <div class="movie-wrapper">
       <div class="movie-poster-wrapper">
-        <img :src="'https://image.tmdb.org/t/p/w300_and_h450_bestv2'+imgElement" :alt="titleElement" />
+        <img :src="'https://image.tmdb.org/t/p/w300_and_h450_bestv2'+element.poster_path" :alt="element.title" />
       </div>
       <div class="movie-infos-wrapper">
-        <h2 class="movie-title">{{ titleElement }}</h2>
+          <Favorite :favos="element" />
+        <h2 class="movie-title">{{ element.title }}</h2>
         <div class="movie-meta-data">
-          <span>{{ audienceElement ? '🔞': "All Audiences" }}</span>
-          <span v-if="nationalityElement.length > 0">
-            Nationality : {{ nationalityElement[0].name }}</span>
-          <span v-if="producersElement.length > 0">
-              Producer : {{producersElement[0].name}}</span>
-          <span class="movie-details-release-date"> Release date : {{releaseDateElement}}</span>
+          <span>{{ element.adult ? '🔞': "All Audiences" }}</span>
+          <span v-if="element.production_countries > 0">
+            Nationality : {{ element.production_countries[0].name }}</span>
+          <span v-if="element.production_companies > 0">
+              Producer : {{element.production_companies[0].name}}</span>
+          <span class="movie-details-release-date"> Release date : {{element.release_date}}</span>
         </div>
-        <p class="movie-description">{{ descriptionElement }}</p>
+        <p class="movie-description">{{ element.overview }}</p>
         <div class="movie-details-wrapper">
-          <RatingStars :Rating="ratingsElement"  />
-          <GenreTag :genres="genreElement" />
+          <RatingStars :Rating="element.vote_average"  />
+          <GenreTag :genres="element.genres" />
         </div>
       </div>
     </div>
@@ -28,48 +29,18 @@
 import Vue from 'vue';
 import RatingStars from './RatingStars.vue';
 import GenreTag from './GenreTag.vue';
+import Favorite from './Favorite.vue';
 
 export default Vue.extend({
   name: 'OneElement',
   components: {
     RatingStars,
     GenreTag,
+    Favorite,
   },
   props: {
-    titleElement: {
-      type: String,
-      default: null,
-    },
-    imgElement: {
-      type: String,
-      default: null,
-    },
-    audienceElement: {
-      type: Boolean,
-      default: null,
-    },
-    nationalityElement: {
-      type: Array,
-      default: null,
-    },
-    producersElement: {
-      type: Array,
-      default: null,
-    },
-    releaseDateElement: {
-      type: String,
-      default: null,
-    },
-    descriptionElement: {
-      type: String,
-      default: null,
-    },
-    ratingsElement: {
-      type: Number,
-      default: 0,
-    },
-    genreElement: {
-      type: Array,
+    element: {
+      type: Object,
       default: null,
     },
   },
@@ -90,10 +61,16 @@ export default Vue.extend({
       .movie-infos-wrapper {
         display: flex;
         flex-direction: column;
+        position: relative;
         background-color: $grey-dark;
         box-shadow: 0 0 20px $classic-black;
         width: 600px;
         padding: 20px;
+        #Favorite {
+          svg {
+            left: 500px;
+          }
+        }
         .movie-title {
           color: $classic-white;
           font-size: 36px;

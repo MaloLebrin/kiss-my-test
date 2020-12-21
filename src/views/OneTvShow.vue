@@ -3,15 +3,7 @@
     <div class="container">
       <Loader v-if="Loading" />
       <OneElement v-if="!Loading"
-        :titleElement="TvShow.name"
-        :imgElement="TvShow.poster_path"
-        :audienceElement="TvShow.adult"
-        :nationalityElement="TvShow.production_countries"
-        :producersElement="TvShow.production_companies"
-        :releaseDateElement="TvShow.first_air_date"
-        :descriptionElement="TvShow.overview"
-        :ratingsElement="TvShow.vote_average"
-        :genreElement="TvShow.genres"
+        :element="TvShow"
       />
       <div class="seasons-elements" v-if="!Loading">
         <div class="season" v-for="season in TvShow.seasons" :key="season.id">

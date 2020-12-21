@@ -3,15 +3,7 @@
     <div class="container">
       <Loader v-if="Loading" />
       <OneElement v-if="!Loading"
-        :titleElement="movie.title"
-        :imgElement="movie.poster_path"
-        :audienceElement="movie.adult"
-        :nationalityElement="movie.production_countries"
-        :producersElement="movie.production_companies"
-        :releaseDateElement="movie.release_date"
-        :descriptionElement="movie.overview"
-        :ratingsElement="movie.vote_average"
-        :genreElement="movie.genres"
+        :element="movie"
       />
     </div>
   </main>
