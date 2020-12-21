@@ -28,7 +28,6 @@ export default Vue.extend({
     text-decoration: none;
   }
 }
-
 #nav {
   padding: 30px;
 
@@ -68,32 +67,22 @@ export default Vue.extend({
       }
     }
   }
-  .pagination {
+  .button-show-more-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
-    box-shadow: 0 0 25px $classic-black;
-    width: 350px;
-    height: 50px;
-    margin: 0 auto;
-    border-radius: 5px;
-    .page-item {
-       .page-link {
-           cursor: pointer;
-           margin: 0 2px;
-           border: none;
-           color: $light-white;
-           background-color: transparent;
-            font-size: 14px;
-            font-weight: 800;
-            transition: color 1s ease-in-out;
-            &:hover {
-                color:  $red;
-            }
-           &.pagination-link--active {
-               color:  $red;
-           }
-       }
+    justify-content: center;
+    .show-more-button {
+      color: $light-white;
+      background-color: $red;
+      border: $red solid 3px;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 5px 10px;
+      &:hover {
+        color: $red;
+        background-color: $classic-white;
+      }
     }
   }
 }

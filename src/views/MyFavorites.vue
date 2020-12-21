@@ -53,10 +53,11 @@ export default Vue.extend({
       this.isLoading = this.favorites.length > 0 && false;
     },
   },
-  // computed() {
-  //   // this.FavoritesList() {
-  //   //   return this.$store.getters.FavoritesList;
-  //   // }
-  // },
 });
 </script>
+<style lang="scss">
+.favorites-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>

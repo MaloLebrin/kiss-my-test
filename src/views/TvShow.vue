@@ -15,7 +15,9 @@
           :element="TvShow"
         />
       </div>
-      <button v-on:click="getMovies(currentPage++)">Show More</button>
+      <div class="button-show-more-wrapper">
+        <button class="show-more-button" v-on:click="getMovies(currentPage++)">Show More</button>
+      </div>
     </div>
   </main>
 </template>
