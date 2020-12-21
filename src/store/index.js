@@ -12,25 +12,22 @@ export default new Vuex.Store({
   },
   getters: {
     Favorites: (state) => {
+      console.log('dans le getter');
       Object.values(localStorage).forEach((value) => {
         const itemInFav = JSON.parse(value);
         console.log(itemInFav);
         const alReadyInState = state.Favorites.find((item) => item.id === itemInFav.id);
         if (!alReadyInState) {
           state.Favorites.push(itemInFav);
-          // state.commit('addOrRemoveFav', itemInFav);
-          // console.log('state', state.Favorites);
         }
       });
-
       state.Movies.filter((element) => element.favory);
-      // state.TvShows.filter((element) => element.favory);
+      state.TvShows.filter((element) => element.favory);
     },
   },
   mutations: {
-    addOrRemoveFav(state, favoryToAdd) { // ajouter spécification movie or tvshow
+    addOrRemoveFav(state, favoryToAdd) {
       const alReadyInState = state.Favorites.find((item) => item.id === favoryToAdd.id);
-      // console.log(alReadyInState);
       if (favoryToAdd.title) {
         // après ajout ou sup
         const newMovieFav = state.Movies.find((Movie) => Movie.id === favoryToAdd.id);
@@ -43,10 +40,8 @@ export default new Vuex.Store({
           console.log('dans la sup');
           newMovieFav.favory = false;
           const index = state.Favorites.findIndex((Movie) => Movie.id === favoryToAdd.id);
-          // console.log(index);
           state.Favorites.splice(index, 1);
           localStorage.removeItem(`${newMovieFav.id}`);
-          console.log('remove', localStorage.removeItem(`${newMovieFav.id}`));
         }
       } else if (favoryToAdd.name) {
         const newTvShowFav = state.TvShows.find((TvShow) => TvShow.id === favoryToAdd.id);
@@ -58,7 +53,6 @@ export default new Vuex.Store({
         } else {
           newTvShowFav.favory = false;
           const index = state.Favorites.findIndex((Movie) => Movie.id === favoryToAdd.id);
-          // console.log(index);
           state.Favorites.splice(index, 1);
           localStorage.removeItem(`${newTvShowFav.id}`);
         }

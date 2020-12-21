@@ -33,7 +33,6 @@ export default Vue.extend({
     return {
       TvShows: {},
       isLoading: true,
-      search: '',
       currentPage: 1,
     };
   },
@@ -56,8 +55,6 @@ export default Vue.extend({
     getTvShows: function (page) {
       store.dispatch('addAllTvShows', page);
       this.TvShows = store.state.TvShows;
-      console.log(this.TvShows);
-      console.log('data', store.state.TvShows);
       this.isLoading = false;
     },
   },

@@ -40,6 +40,8 @@ export default Vue.extend({
   },
   mounted() {
     this.getFavorites();
+    // eslint-disable-next-line no-unused-expressions
+    store.getters.Favorites;
   },
   watch: {
     // eslint-disable-next-line object-shorthand
