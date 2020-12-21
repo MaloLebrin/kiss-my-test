@@ -11,7 +11,7 @@ On a travaillé ensemble de juin à octobre. Ce partenariat s'est stoppé si tô
 
 vous trouverez ici mon ressenti, mes interrogations, les difficultés rencontrées, bref les kiffs et les déceptions 😂.
 
-## installation du repo et des dépendances.
+# installation du repo et des dépendances.
 
 Premier questionnement : "est-ce que tu as besoin de lamatomic (librairie de composant construite au cours du développement de la V2 de lamacompta.co)?"
 À première vue, je ne pense pas en avoir besoin, l'exercice comporte peu de pages, et d'éléments. Il est possible que je change d'avis en cours de route.
@@ -19,7 +19,7 @@ Rassuré 😌 : je ne suis pas obligé de faire du css pure, je peux utiliser SA
 
 Je n’avoue pas avoir tout compris la procédure pour rendre le projet. j'ai l'impression qu'il faut créer une branche sur le repo du test, et le stocker sur mon github en remote. Hummm, j'avoue que je veux bien plus de précisions concernant cette procédure. J'ai déjà utilisé gitlab avec lamacompta, mais j'avoue que je me suis contenté de cloner le repo et de bosser dessus avec des branches et tout. Je n'ai pas fait de lien avec github.
 
-### mise en place de l'organisation de travail
+## mise en place de l'organisation de travail
 
 Je vais décomposer le projet en views ou pages.
 Créer des composants pour chaque élément répétitif.
@@ -111,7 +111,7 @@ Ensuite il me restera une grosse session refactoring. Comme toujours passage obl
 Concernant le refactoring, j'ai mutualisé pas mal de scss, ce qui fait que certaines pages en sont presque dépourvues. J'ai pris la décision de ne pas faire une page commune pour obtenir le détail d'une série et le détail d'un film. Je trouvais l'opération complexe et peu utile étant donné que les infos traitées ensuite ne sont pas toujours les mêmes. À vous de me dire !
 En revanche pour ces éléments communs au sein de ces deux pages j'ai bien fait un composant.
 
-### Conclusion
+## Conclusion
 
 Je te tiens à vous remercier pour ce boulot, j'ai appris tellement de choses. Merci beaucoup, vraiment!
 Je tiens à préciser pour finir que je postule pour un poste certe, si dans le cas ou vous n'êtes pas satisfait de mon niveau j'aimerai vous proposer un stage. Car oui, ma formation délivre des conventions. Et comme vous avez pu le constater dans ce Logbook j'aime bien apprendre, et les challenges.
